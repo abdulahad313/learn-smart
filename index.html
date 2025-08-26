@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uzair Course Website</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;}
+    body{background:#f8f9fa;color:#333;}
+    header{
+      background:linear-gradient(135deg,#0072ff,#00c6ff);
+      color:#fff;text-align:center;padding:60px 20px;
+    }
+    header h1{font-size:2.5rem;margin-bottom:10px;}
+    header p{font-size:1.2rem;}
+
+    nav{margin-top:20px;}
+    nav a{
+      text-decoration:none;background:#fff;color:#0072ff;
+      padding:10px 20px;margin:5px;border-radius:25px;
+      font-weight:bold;transition:.3s;
+    }
+    nav a:hover{background:#e6f2ff;}
+
+    section{padding:60px 20px;text-align:center;}
+    h2{font-size:2rem;margin-bottom:20px;color:#0072ff;}
+
+    .fees{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:900px;margin:0 auto;}
+    .card{
+      background:#fff;padding:25px;border-radius:15px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:.3s;
+    }
+    .card:hover{transform:translateY(-5px);}
+    .card h3{margin-bottom:10px;color:#333;}
+    .card p{margin-bottom:15px;}
+    .price{font-size:1.5rem;font-weight:bold;color:#0072ff;}
+
+    form{
+      background:#fff;max-width:500px;margin:0 auto;
+      padding:30px;border-radius:15px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      text-align:left;
+    }
+    form label{font-weight:bold;display:block;margin-bottom:5px;}
+    form input, form textarea{
+      width:100%;padding:10px;margin-bottom:15px;
+      border:1px solid #ccc;border-radius:8px;
+    }
+    form button{
+      width:100%;padding:12px;background:#0072ff;color:#fff;
+      border:none;border-radius:8px;font-size:1rem;font-weight:bold;
+      cursor:pointer;transition:.3s;
+    }
+    form button:hover{background:#005ec2;}
+
+    footer{
+      background:#0072ff;color:#fff;text-align:center;
+      padding:20px;margin-top:40px;
+    }
+    .contact-btns a{
+      display:inline-block;text-decoration:none;
+      margin:5px;padding:12px 20px;border-radius:25px;
+      font-weight:bold;transition:.3s;
+    }
+    .call{background:#28a745;color:#fff;}
+    .call:hover{background:#218838;}
+    .whatsapp{background:#25d366;color:#fff;}
+    .whatsapp:hover{background:#1ebd57;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Uzair's Courses</h1>
+    <p>Learn & Grow with Professional Training</p>
+    <nav>
+      <a href="#courses">Courses</a>
+      <a href="#fees">Fees</a>
+      <a href="#register">Register</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Course Overview Section -->
+  <section id="courses">
+    <h2>Our Certified Courses</h2>
+    <p><strong>Frontend Development:</strong> Covers HTML, CSS, and JavaScript, with a focus on responsive design and real-time projects.</p>
+    <p><strong>Logic Building:</strong> Focuses on programming languages like C, C++, Java, and Python, and includes knowledge of AI.</p>
+  </section>
+
+  <section id="fees">
+    <h2>Course Fees</h2>
+    <div class="fees">
+      <div class="card">
+        <h3>Basic Course</h3>
+        <p>Perfect for beginners starting out.</p>
+        <p class="price">₹500</p>
+      </div>
+      <div class="card">
+        <h3>Intermediate Course</h3>
+        <p>For learners wanting deeper skills.</p>
+        <p class="price">₹1000</p>
+      </div>
+      <div class="card">
+        <h3>Advanced Course</h3>
+        <p>Complete training with expert guidance.</p>
+        <p class="price">₹1400</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="register">
+    <h2>Register Now</h2>
+    <form onsubmit="sendToWhatsApp(event)">
+      <label>Name</label>
+      <input type="text" id="name" required />
+      <label>Email</label>
+      <input type="email" id="email" required />
+      <label>Phone</label>
+      <input type="text" id="phone" required />
+      <label>Message</label>
+      <textarea id="message" rows="4"></textarea>
+      <button type="submit">Submit & Send via WhatsApp</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-btns">
+      <a href="tel:+918866834316" class="call">📞 Call Us</a>
+      <a href="https://wa.me/918866834316" target="_blank" class="whatsapp">💬 WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Uzair Course Website. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function sendToWhatsApp(e){
+      e.preventDefault();
+      let name=document.getElementById("name").value;
+      let email=document.getElementById("email").value;
+      let phone=document.getElementById("phone").value;
+      let message=document.getElementById("message").value;
+      let url="https://wa.me/918866834316?text="
+        +"*New Registration*%0A"
+        +"Name: "+name+"%0A"
+        +"Email: "+email+"%0A"
+        +"Phone: "+phone+"%0A"
+        +"Message: "+message;
+      window.open(url,'_blank').focus();
+      alert("✅ Registration Successful! Redirecting to WhatsApp...");
+    }
+  </script>
+</body>
+</html>
